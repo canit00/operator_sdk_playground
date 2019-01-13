@@ -23,7 +23,7 @@
 # =======================================================================
 #set -x
 # check if string is being passed and whether your GOPATH is set.
-if [[ ! ${1} ]]; then printf "string required to set your new project name\n"; exit 1;
+if [[ ! $1 ]]; then printf "string required to set your new project name\n"; exit 1;
 # https://github.com/golang/go/wiki/SettingGOPATH
 elif [[ ! ${GOPATH} ]]; then printf "Please set your GOPATH env\n"; exit 1; fi
 
@@ -33,9 +33,9 @@ P=${1// /}
 PROJECT=`sed -e 's/\(.*\)/\L\1/' <<< "$P"`
 
 # Set your project path.
-DIR=${GOPATH}/src/github.com/test-project/
+DIR=${GOPATH}/src/github.com/operator-framework/
 # Check if project name exists?
-if [[ ! -d $DIR ]]; then mkdir ${DIR}; exit 0;
+if [[ ! -d ${DIR} ]]; then mkdir ${DIR}; exit 0;
 elif [[ -d ${DIR}/${PROJECT} ]]; then
   printf "Project already exists, delete or select a different project name\n"; exit 1; fi
 
