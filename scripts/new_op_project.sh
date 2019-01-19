@@ -35,8 +35,8 @@ PROJECT=`sed -e 's/\(.*\)/\L\1/' <<< "$P"`
 # Set your project path.
 DIR=${GOPATH}/src/github.com/operator-framework/
 # Check if project name exists?
-if [[ ! -d ${DIR} ]]; then mkdir ${DIR}; exit 0;
-elif [[ -d ${DIR}/${PROJECT} ]]; then
+if [[ ! -d ${DIR} ]]; then mkdir ${DIR}; exit 0; fi
+if [[ -d ${DIR}/${PROJECT} ]]; then
   printf "Project already exists, delete or select a different project name\n"; exit 1; fi
 
 # initiate your operator project.
